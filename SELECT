@@ -1,0 +1,2 @@
+SELECT CUSTOMER_ID, STREET_ADDRESS || ', ' || CITY || ', ' || STATE || ' ' || ZIP AS LOCATION FROM CUSTOMER;
+//concatena as colunas street_address, city e state e coloca em uma nova coluna chamada LOCATION

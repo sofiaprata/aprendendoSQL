@@ -1,0 +1,4 @@
+SELECT * FROM station_data
+WHERE year = 2010;
+
+//seleciona a tabela station_data, e filtra os dados de quando a coluna year = 2010

@@ -1,4 +1,65 @@
 SELECT * FROM station_data
 WHERE year = 2010;
-
 //seleciona a tabela station_data, e filtra os dados de quando a coluna year = 2010
+
+SELECT * FROM station_data
+WHERE year != 2010;
+// diferente que, ou pode ser usado year <> 2010
+
+SELECT * FROM station_data
+WHERE year BETWEEN 2005 and 2010;
+//intervalo entre 2005 a 2010, com 2005 e 2010 incluidos
+
+SELECT * FROM station_data
+WHERE year >= 2005 AND year <= 2010;
+//Precisa exclusivamente respeitar a setença maior ou igual a 2005 E menor ou igual a 2010. Se não seguir um dos dois, é inválido.
+
+SELECT * FROM station_data 
+WHERE year >2005 AND <2010;
+//Não inclui 2005 e 2010
+
+SELECT * FROM station_data
+WHERE MONTH = 3
+OR MONTH = 6
+OR MONTH = 9
+OR MONTH = 12;
+//Só precisa seguir uma das sentenças para ser considerado válido
+
+SELECT * FROM station_data
+WHERE MONTH IN (3,6,9,12);
+//Mesma funçao de ou, mas segue o que esa dentro da lista. Caso queira excluir tudo menos o que esta na lista é só digitar NOT IN (lista)
+
+SELECT * FROM station_data
+WHERE MONTH % 3 = 0;
+// Mostrará todos os dados no qual o valor da coluna MONTH é divisivel por 3
+// Oracle não dá suporte ao %, nele precisa usar a função MOD()
+
+SELECT * FROM station_data
+WHERE report_code = '513A63';
+//Suporta a leitura de textos, contanto que esteja entre aspas simples
+
+SELECT * FROM station_data
+WHERE length(report_code) != 6;
+//imprimirá todos os valores da coluna report_code que não possui 6 caracteres de tamanho
+
+SELECT * FROM station_data 
+WHERE report_code LIKE 'A%';
+//Filtrará na coluna report_code todos os valores que começam com A mas tem outros caracteres quaisquer depois (Não é único o A), e para isso usamos o %
+
+SELECT * FROM station_data
+WHERE report_code LIKE 'B_C%'
+//Usa o _ para dizer que não é para filtrar nenhum caractere após o B, apenas o C, e depois do C pode ser quaisquer cractere
+
+SELECT * FROM station_data
+WHERE tornado = 1 AND hail = 0;
+// Tipos booleanos (1= true, 0 = false)
+
+SELECT * FROM station_data
+WHERE snow_depth IS NULL;
+//Imprimirá todos os valores onde a coluna snow_depth é NULL ( sem valor )
+
+SELECT * FROM station_data
+WHERE coalesce(precipitation, 0) <=0,5;
+//a função coalesce() transforma todos os valores nulos na edição em 0, para que seja possivel inclui-los na pesquisa
+
+

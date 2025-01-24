@@ -1,0 +1,35 @@
+SELECT COUNT (*) AS CUSTOMER_ID FROM CUSTOMER;
+//Count -> operação de agregação mais simples, conta o número de registros de uma tabela
+
+SELECT COUNT (*) AS CUSTOMER_ID FROM CUSTOMER
+WHERE STATE = 'TX';
+//Conta quantos registros de clientes eram do estado Texas (TX)
+
+SELECT ORDER_DATE, COUNT (*) AS CUSTOMER_ID FROM CUSTOMER_ORDER
+GROUP BY ORDER_DATE;
+//Separa a contagem de id de clientes por data de pedido.
+
+SELECT ORDER_DATE, COUNT (*) AS CUSTOMER_ID FROM CUSTOMER_ORDER
+GROUP BY ORDER_DATE
+ORDER BY ORDER_DATE;
+//Ordena em crescente a coluna ORDER_DATE
+
+SELECT ORDER_DATE, COUNT (*) AS CUSTOMER_ID FROM CUSTOMER_ORDER
+GROUP BY ORDER_DATE
+ORDER BY ORDER_DATE DESC;
+//Ordena decrescente a coluna ORDER_DATE
+
+SELECT COUNT(CUSTOMER_ID) AS CONTAGEM
+FROM CUSTOMER;
+//Conta o número de valores não nulos
+
+SELECT month, AVG(temperature) AS avg_temp
+FROM station_data
+WHERE year >= 2000
+GROUP BY month;
+
+SELECT month, round(AVG(temperature),2)
+//arredonda o valor decimal muito extenso
+
+
+
